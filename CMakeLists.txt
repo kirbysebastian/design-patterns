@@ -42,7 +42,9 @@ endif()
 ##############
 add_library(src_lib
   patterns/observer-pattern/Subject.cpp
+  patterns/singleton-pattern/Database.cpp
   src/observer-classes/Seconds.cpp
+  src/observer-classes/TimeObserver.cpp
   src/observer-classes/TimeObserver.cpp)
 
 include_directories(src patterns)
