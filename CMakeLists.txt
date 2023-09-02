@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 3.16)
 project(designpatterns VERSION 1.0.0)
 
 ##############
@@ -41,24 +41,27 @@ endif()
 # SOURCE
 ##############
 add_library(src_lib
-  patterns/observer-pattern/Subject.cpp
-  patterns/singleton-pattern/Database.cpp
+  libs/patterns/behavioral/observer-pattern/Subject.cpp
+  libs/patterns/creational/singleton-pattern/Database.cpp
+  src/factorymethod/ApplianceHardware.cpp
+  src/factorymethod/Microwave.cpp
+  src/factorymethod/MicrowaveFactory.cpp
   src/observer-classes/Seconds.cpp
   src/observer-classes/TimeObserver.cpp
   src/observer-classes/TimeObserver.cpp)
 
 include_directories(src patterns)
 
-target_include_directories(src_lib PUBLIC include)
-add_executable(designpattern main.cpp)
+target_include_directories(src_lib PUBLIC libs/patterns)
+add_executable(designpattern src/main.cpp)
 target_link_libraries(designpattern src_lib)
 
 ##############
 # TESTING
 ##############
-add_executable(unit_test
+add_executable(unittest
     test/sampletest.cpp)
-target_link_libraries(unit_test gtest_main gtest)
-target_link_libraries(unit_test src_lib)
+target_link_libraries(unittest gtest_main gtest)
+target_link_libraries(unittest src_lib)
 
 add_test(NAME UnitTest COMMAND runtests)

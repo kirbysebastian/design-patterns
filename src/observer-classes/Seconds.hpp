@@ -1,7 +1,7 @@
 #ifndef __SECONDS_HPP__
 #define __SECONDS_HPP__
 
-#include "observer-pattern/Subject.hpp"
+#include "behavioral/observer-pattern/Subject.hpp"
 
 class Seconds : public Subject
 {

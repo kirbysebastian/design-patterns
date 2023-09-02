@@ -1,15 +1,23 @@
 #include <iostream>
 
+// Applications
+#include "factorymethod/ApplianceHardware.hpp"
+#include "IApplication.hpp"
+
 /*
 #include "observer-classes/Seconds.hpp"
 #include "observer-classes/TimeObserver.hpp"
 */
 
-#include "singleton-pattern/Database.hpp"
+/*
+#include "creational/singleton-pattern/Database.hpp"
 Database* Database::dbPtr = nullptr;
+*/
 
 int main()
 {
+	factorymethod::ApplianceHardware applianceHW;
+	applianceHW.run();
     /*
      * ================OBSERVER PATTERN================
      *
@@ -32,7 +40,7 @@ int main()
      *
      * ================OBSERVER PATTERN================
      */
-
+/*
     Database* dbPtr = Database::getInstance();
     std::cout << dbPtr->getName() << "\n";
     dbPtr->store("Pevidal");
@@ -50,6 +58,7 @@ int main()
     dbPtr->printDB();
     newPtr->remove("Pevidal");
     dbPtr->printDB();
+*/
 
     return 0;
 }
